@@ -1,22 +1,14 @@
-document.getElementById("addbtn").addEventListener('click', () =>{
+function update(){
+  let clock = document.getElementById("clock");
+  let now  = new Date();
 
-  let task_to_add = document.getElementById("task").value;
-  let newlist = document.getElementById("list");
+  let h = String(now.getHours()).padStart(2,'0');
+  let m = String(now.getMinutes()).padStart(2,'0');
+  let s = String(now.getSeconds()).padStart(2,'0');
 
-  if(task_to_add!=""){
+  clock.innerText = `${h}:${m}:${s}`;
 
-    let creating_list = document.createElement("li");
-    creating_list.innerText = task_to_add;
-    let deletebtn = document.createElement("button");
-    deletebtn.innerText = "X";
 
-    deletebtn.classList.add("delbtn");
-    deletebtn.addEventListener('click',() =>{
-      creating_list.remove();
-    });
-
-    creating_list.appendChild(deletebtn);
-    newlist.appendChild(creating_list);
-    task.value = "";
-  }
-})
+}
+update();
+setInterval(update, 1000);
