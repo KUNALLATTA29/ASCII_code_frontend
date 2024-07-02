@@ -1,14 +1,8 @@
-function update(){
-  let clock = document.getElementById("clock");
-  let now  = new Date();
+document.getElementById("btn").addEventListener('click',() => {
 
-  let h = String(now.getHours()).padStart(2,'0');
-  let m = String(now.getMinutes()).padStart(2,'0');
-  let s = String(now.getSeconds()).padStart(2,'0');
-
-  clock.innerText = `${h}:${m}:${s}`;
-
-
-}
-update();
-setInterval(update, 1000);
+  let c = String(document.getElementById("text").value);
+  let code = c.charCodeAt(0);
+    
+  document.getElementById("result").innerText = `ASCII CODE: ${code}`;
+ 
+})
